@@ -53,9 +53,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-body {
-
-}
+/* div{
+	border: 1px solid orange; 
+} */
 section {
 	margin-block: 6em;
 }
@@ -123,14 +123,22 @@ header {
 }
 /* Code CSS en prévision de l'ajout d'un carousel pour la bannière */
 /* Gestion des fleches du carrousel */
-#banner .arrow {
+/* #banner .arrow {
 	position: absolute;
-}
+} */
 #banner .arrow_left {
+	position: absolute;
+	top: 50%;
 	left: 10px;
+	transform: translateY(-50%);
+    cursor: pointer;
 }
 #banner .arrow_right {
+	position: absolute;
+	top: 50%;
 	right: 10px;
+	transform: translateY(-50%);
+    cursor: pointer;
 }
 /* Gestion des points du carrousel */
 .dots {
