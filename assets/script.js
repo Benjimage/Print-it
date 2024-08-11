@@ -19,16 +19,18 @@ const slides = [
  /* const bannerSlide = document.getElementById('banner'); */
  const leftArrow = document.querySelector('.arrow_left');
  const rightArrow = document.querySelector('.arrow_right');
+ const bannerImage = document.querySelector('.banner-img');
  const bannerSpan = document.querySelector('#banner span');
  const bannerText = document.querySelector('#banner p');
  let spanDots = document.getElementsByClassName('.dot'); 
- /* spanDots.addEventListener('onclick', slideRun) */
+ /* spanDots.addEventListener('onclick', slideRun); */
 
  leftArrow.addEventListener('click', ()=>{
 	 console.log('OK left');
  })
  rightArrow.addEventListener('click', ()=>{
-	console.log('OK right');
+	/* console.log('OK right'); */
+	bannerImage.setAttribute("src","./assets/images/slideshow/slide2.jpg")
 })
 console.log(bannerSpan);
 console.log(bannerText);
