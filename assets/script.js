@@ -1,6 +1,6 @@
 const slides = [
 	{
-		"image":"slide1.jpg",
+		"image":"slide1.jpg",// ici référence à ajouter dans la string param 2 de setAttribute
 		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
 	},
 	{
@@ -17,20 +17,25 @@ const slides = [
 	}
 ]
  /* const bannerSlide = document.getElementById('banner'); */
+
  const leftArrow = document.querySelector('.arrow_left');
  const rightArrow = document.querySelector('.arrow_right');
  const bannerImage = document.querySelector('.banner-img');
- const bannerSpan = document.querySelector('#banner span');
+ const bannerSpan = document.querySelector('#banner span');// À priori pas utile
  const bannerText = document.querySelector('#banner p');
  let spanDots = document.getElementsByClassName('.dot'); 
- /* spanDots.addEventListener('onclick', slideRun); */
 
+ /* spanDots.addEventListener('onclick', slideRun); */
+/* let slideOn = "./assets/images/slideshow/" + "slide2.jpg" */
+
+let slideOn = "./assets/images/slideshow/" + slides[3].image
  leftArrow.addEventListener('click', ()=>{
 	 console.log('OK left');
  })
  rightArrow.addEventListener('click', ()=>{
 	/* console.log('OK right'); */
-	bannerImage.setAttribute("src","./assets/images/slideshow/slide2.jpg")
+	/* bannerImage.setAttribute("src","./assets/images/slideshow/slide2.jpg") */
+	bannerImage.setAttribute("src",slideOn)
 })
 console.log(bannerSpan);
 console.log(bannerText);
@@ -44,6 +49,7 @@ function toward(){
 }
 toward()
 console.log (indexForSlides)
+
 /* Mise en place des fonctions du slider*/
 
 /* let slideIndex = 1;
