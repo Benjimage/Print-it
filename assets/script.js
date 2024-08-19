@@ -27,7 +27,6 @@ const spanDot = document.getElementsByClassName("dot");
 let indexForSlides = 0;
 let slideOn
 let scrollingTime
-let restartTime
 
 autoSlider()
 
@@ -36,7 +35,7 @@ leftArrow.addEventListener('mouseout',autoSlider)
 
 rightArrow.addEventListener('click', nextSlide)
 rightArrow.addEventListener('click', pauseSlider)
-rightArrow.addEventListener('mouseout',autoSlider)
+rightArrow.addEventListener('mouseout', autoSlider)
 
 function autoSlider(){
 	 scrollingTime = setInterval(nextSlide,3000)
@@ -50,6 +49,7 @@ function nextSlide() {
 	indexForSlides++;
 	if (indexForSlides > slides.length -1){indexForSlides = 0}
 		slideOn = "./assets/images/slideshow/" + slides[indexForSlides].image;
+		bannerText.innerHTML = slides[indexForSlides].tagLine;
 		bannerImage.setAttribute("src",slideOn);
 		dotSlides()
 	} 
@@ -57,6 +57,7 @@ function previousSlide(){
 		indexForSlides--;
 		if (indexForSlides < 0) {indexForSlides = slides.length -1}
 		slideOn = "./assets/images/slideshow/" + slides[indexForSlides].image;
+		bannerText.innerHTML = slides[indexForSlides].tagLine;
 		bannerImage.setAttribute("src",slideOn);
 		dotSlides()
 		pauseSlider()
@@ -89,10 +90,9 @@ function previousSlide(){
 	
 	function dotSlides() {
 		let i;
-		let dots = document.getElementsByClassName("dot");
-		for (i = 0; i < dots.length; i++) {
-			dots[i].className = dots[i].className.replace(" dot_selected", "");
+		for (i = 0; i < spanDot.length; i++) {
+			spanDot[i].className = spanDot[i].className.replace(" dot_selected", "");
 		}
-		dots[indexForSlides].className += " dot_selected";
+		spanDot[indexForSlides].className += " dot_selected";
 	} 
 
