@@ -29,57 +29,51 @@ let scrollingTime
 
 autoSlider()
 
-leftArrow.addEventListener('click', previousSlide)
+leftArrow.addEventListener('click', pauseSlider)
+leftArrow.addEventListener('click', ()=>{plusSlides(-1)})
 leftArrow.addEventListener('mouseleave', autoSlider)
 
-rightArrow.addEventListener('click', nextSlide)
 rightArrow.addEventListener('click', pauseSlider)
+rightArrow.addEventListener('click',()=>{plusSlides(1)})
 rightArrow.addEventListener('mouseleave', autoSlider)
 
+spanDot[0].addEventListener('click',()=>{currentSlide(0)})
+spanDot[1].addEventListener('click',()=>{currentSlide(1)})
+spanDot[2].addEventListener('click',()=>{currentSlide(2)})
+spanDot[3].addEventListener('click',()=>{currentSlide(3)})
 
 function autoSlider(){
-	scrollingTime = setInterval(nextSlide,2500)
+	function autoSlide() {plusSlides(1)} 
+	scrollingTime = setInterval(autoSlide,2500)
 }
+
 function pauseSlider(){
 	clearInterval(scrollingTime)
 }
-
-function nextSlide() {
-	indexForSlides++;
-	if (indexForSlides > slides.length -1){indexForSlides = 0}
-	slideOn = "./assets/images/slideshow/" + slides[indexForSlides].image;
-	bannerText.innerHTML = slides[indexForSlides].tagLine;
-	bannerImage.setAttribute("src",slideOn);
-	dotSlides()
-	} 
-
-function previousSlide(){
-	indexForSlides--;
-	if (indexForSlides < 0) {indexForSlides = slides.length -1}
-	slideOn = "./assets/images/slideshow/" + slides[indexForSlides].image;
-	bannerText.innerHTML = slides[indexForSlides].tagLine;
-	bannerImage.setAttribute("src",slideOn);
-	dotSlides()
+function plusSlides(n) {
+	showSlides(indexForSlides += n);
+  }
+  
+function currentSlide(n) {
 	pauseSlider()
-	}
-
-function dotDisplay(n){
-	slideOn = "./assets/images/slideshow/" + slides[n].image;
-	bannerText.innerHTML = slides[n].tagLine;
-	bannerImage.setAttribute("src",slideOn);
-	let currentPoint = document.querySelector('.dot_selected')
-	currentPoint.classList.remove("dot_selected");
-	spanDot[n].className += " dot_selected";
-	pauseSlider()
-}	
-	
-	
-function dotSlides() {
-	let i;
-	for (i = 0; i < spanDot.length; i++) {
+	showSlides(indexForSlides= n);
+  }
+  
+function showSlides(n) {
+	if (n > slides.length -1){indexForSlides = 0}    
+	if (n < 0) {indexForSlides = slides.length -1}
+		slideOn = "./assets/images/slideshow/" + slides[indexForSlides].image;
+		bannerText.innerHTML = slides[indexForSlides].tagLine;
+		bannerImage.setAttribute("src",slideOn); 
+	for (let i = 0; i < spanDot.length; i++) {
 		spanDot[i].className = spanDot[i].className.replace(" dot_selected", "");
 	}
 	spanDot[indexForSlides].className += " dot_selected";
-} 
+}
+
+
+
+	
+	
 
 	
