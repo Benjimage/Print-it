@@ -1,4 +1,3 @@
-
 const slides = [
 	{
 		"image":"slide1.jpg",// ici référence à ajouter dans la string param 2 de setAttribute
