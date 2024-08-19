@@ -1,3 +1,4 @@
+
 const slides = [
 	{
 		"image":"slide1.jpg",// ici référence à ajouter dans la string param 2 de setAttribute
@@ -38,7 +39,7 @@ rightArrow.addEventListener('click', pauseSlider)
 rightArrow.addEventListener('mouseout', autoSlider)
 
 function autoSlider(){
-	 scrollingTime = setInterval(nextSlide,3000)
+	scrollingTime = setInterval(nextSlide,3000)
 }
 function pauseSlider(){
 	clearInterval(scrollingTime)
@@ -47,19 +48,20 @@ function pauseSlider(){
 function nextSlide() {
 	indexForSlides++;
 	if (indexForSlides > slides.length -1){indexForSlides = 0}
-		slideOn = "./assets/images/slideshow/" + slides[indexForSlides].image;
-		bannerText.innerHTML = slides[indexForSlides].tagLine;
-		bannerImage.setAttribute("src",slideOn);
-		dotSlides()
+	slideOn = "./assets/images/slideshow/" + slides[indexForSlides].image;
+	bannerText.innerHTML = slides[indexForSlides].tagLine;
+	bannerImage.setAttribute("src",slideOn);
+	dotSlides()
 	} 
+
 function previousSlide(){
-		indexForSlides--;
-		if (indexForSlides < 0) {indexForSlides = slides.length -1}
-		slideOn = "./assets/images/slideshow/" + slides[indexForSlides].image;
-		bannerText.innerHTML = slides[indexForSlides].tagLine;
-		bannerImage.setAttribute("src",slideOn);
-		dotSlides()
-		pauseSlider()
+	indexForSlides--;
+	if (indexForSlides < 0) {indexForSlides = slides.length -1}
+	slideOn = "./assets/images/slideshow/" + slides[indexForSlides].image;
+	bannerText.innerHTML = slides[indexForSlides].tagLine;
+	bannerImage.setAttribute("src",slideOn);
+	dotSlides()
+	pauseSlider()
 	}
 
 function dotDisplay(n){
@@ -80,3 +82,5 @@ function dotSlides() {
 	}
 	spanDot[indexForSlides].className += " dot_selected";
 } 
+
+	
