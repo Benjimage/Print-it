@@ -25,34 +25,30 @@ const bannerImage = document.querySelector('.banner-img');
 const bannerText = document.querySelector('#banner p');
 const spanDot = document.getElementsByClassName("dot");
 
-/* let i = 0 */
-spanDot[0].addEventListener('click',()=>{
-	console.log(spanDot)
-	console.log('Ça marche !!! One!')
+spanDot[0].addEventListener('click',()=>{	
 	slideOn = "./assets/images/slideshow/" + slides[0].image;
 	bannerImage.setAttribute("src",slideOn);
-		
+	console.log('Point 1')
  })
+
  spanDot[1].addEventListener('click',()=>{
-	console.log(spanDot)
-	console.log('Ça marche !!! Two!')
 	slideOn = "./assets/images/slideshow/" + slides[1].image;
 	bannerImage.setAttribute("src",slideOn);
-		
+	console.log('Point 2')
  })
+
  spanDot[2].addEventListener('click',()=>{
-	console.log(spanDot)
-	console.log('Ça marche !!! Three!')
 	slideOn = "./assets/images/slideshow/" + slides[2].image;
 	bannerImage.setAttribute("src",slideOn);
- })		
+	console.log('Point 3')
+ })	
+
  spanDot[3].addEventListener('click',()=>{
-	console.log(spanDot)
-	console.log('Ça marche !!! Four!')
 	slideOn = "./assets/images/slideshow/" + slides[3].image;
 	bannerImage.setAttribute("src",slideOn);
-		
+	console.log('Point 4')
  })
+
 let indexForSlides = 0;
 let slideOn
 
@@ -70,21 +66,21 @@ function dotSlides() {
  leftArrow.addEventListener('click', ()=>{
 
 		indexForSlides--;
+		if (indexForSlides < 0) {indexForSlides = slides.length -1}
 		slideOn = "./assets/images/slideshow/" + slides[indexForSlides].image;
 		bannerImage.setAttribute("src",slideOn);
 		dotSlides()
-		return indexForSlides;		
+		console.log("<<Left")
  })
- console.log(indexForSlides);
 
  rightArrow.addEventListener('click', ()=>{
 
 		indexForSlides++;
+		if (indexForSlides > slides.length -1){indexForSlides = 0}
 		slideOn = "./assets/images/slideshow/" + slides[indexForSlides].image;
 		bannerImage.setAttribute("src",slideOn);
 		dotSlides()
-		return indexForSlides;
+		console.log("Right>>")
  })
- console.log(indexForSlides);
 
 
