@@ -21,8 +21,7 @@ const leftArrow = document.querySelector('.arrow_left');
 const rightArrow = document.querySelector('.arrow_right');
 const bannerImage = document.querySelector('.banner-img');
 const bannerText = document.querySelector('#banner p');
-const spanDot = document.getElementsByClassName("dot");
-
+const spanDot = document.getElementsByClassName('dot');
 
 let indexForSlides = 0;
 let slideOn
@@ -31,14 +30,15 @@ let scrollingTime
 autoSlider()
 
 leftArrow.addEventListener('click', previousSlide)
-leftArrow.addEventListener('mouseout',autoSlider)
+leftArrow.addEventListener('mouseleave', autoSlider)
 
 rightArrow.addEventListener('click', nextSlide)
 rightArrow.addEventListener('click', pauseSlider)
-rightArrow.addEventListener('mouseout', autoSlider)
+rightArrow.addEventListener('mouseleave', autoSlider)
+
 
 function autoSlider(){
-	scrollingTime = setInterval(nextSlide,3000)
+	scrollingTime = setInterval(nextSlide,2500)
 }
 function pauseSlider(){
 	clearInterval(scrollingTime)
