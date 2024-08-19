@@ -32,8 +32,11 @@ let restartTime
 autoSlider()
 
 leftArrow.addEventListener('click', previousSlide)
+leftArrow.addEventListener('mouseout',autoSlider)
+
 rightArrow.addEventListener('click', nextSlide)
 rightArrow.addEventListener('click', pauseSlider)
+rightArrow.addEventListener('mouseout',autoSlider)
 
 function autoSlider(){
 	 scrollingTime = setInterval(nextSlide,3000)
