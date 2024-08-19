@@ -1,4 +1,3 @@
-
 const slides = [
 	{
 		"image":"slide1.jpg",// ici référence à ajouter dans la string param 2 de setAttribute
@@ -24,6 +23,7 @@ const bannerImage = document.querySelector('.banner-img');
 const bannerText = document.querySelector('#banner p');
 const spanDot = document.getElementsByClassName("dot");
 
+
 let indexForSlides = 0;
 let slideOn
 let scrollingTime
@@ -44,7 +44,6 @@ function pauseSlider(){
 	clearInterval(scrollingTime)
 }
 
-
 function nextSlide() {
 	indexForSlides++;
 	if (indexForSlides > slides.length -1){indexForSlides = 0}
@@ -62,37 +61,22 @@ function previousSlide(){
 		dotSlides()
 		pauseSlider()
 	}
-	
-	spanDot[0].addEventListener('click',()=>{	
-		slideOn = "./assets/images/slideshow/" + slides[0].image;
-		bannerImage.setAttribute("src",slideOn);
-		console.log('Point 1')
-	 })
-	
-	 spanDot[1].addEventListener('click',()=>{
-		slideOn = "./assets/images/slideshow/" + slides[1].image;
-		bannerImage.setAttribute("src",slideOn);
-		console.log('Point 2')
-	 })
-	
-	 spanDot[2].addEventListener('click',()=>{
-		slideOn = "./assets/images/slideshow/" + slides[2].image;
-		bannerImage.setAttribute("src",slideOn);
-		console.log('Point 3')
-	 })	
-	
-	 spanDot[3].addEventListener('click',()=>{
-		slideOn = "./assets/images/slideshow/" + slides[3].image;
-		bannerImage.setAttribute("src",slideOn);
-		console.log('Point 4')
-	 })
-	
-	
-	function dotSlides() {
-		let i;
-		for (i = 0; i < spanDot.length; i++) {
-			spanDot[i].className = spanDot[i].className.replace(" dot_selected", "");
-		}
-		spanDot[indexForSlides].className += " dot_selected";
-	} 
 
+function dotDisplay(n){
+	slideOn = "./assets/images/slideshow/" + slides[n].image;
+	bannerText.innerHTML = slides[n].tagLine;
+	bannerImage.setAttribute("src",slideOn);
+	let currentPoint = document.querySelector('.dot_selected')
+	currentPoint.classList.remove("dot_selected");
+	spanDot[n].className += " dot_selected";
+	pauseSlider()
+}	
+	
+	
+function dotSlides() {
+	let i;
+	for (i = 0; i < spanDot.length; i++) {
+		spanDot[i].className = spanDot[i].className.replace(" dot_selected", "");
+	}
+	spanDot[indexForSlides].className += " dot_selected";
+} 
