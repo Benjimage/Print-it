@@ -23,39 +23,25 @@ const bannerImage = document.querySelector('.banner-img');
 const bannerText = document.querySelector('#banner p');
 const spanDot = document.getElementsByClassName('dot');
 
-let indexForSlides = 0;
+let indexForSlides = 1;
 let slideOn
 let scrollingTime
 
-autoSlider()
 
-leftArrow.addEventListener('click', pauseSlider)
 leftArrow.addEventListener('click', ()=>{plusSlides(-1)})
-leftArrow.addEventListener('mouseleave', autoSlider)
 
-rightArrow.addEventListener('click', pauseSlider)
 rightArrow.addEventListener('click',()=>{plusSlides(1)})
-rightArrow.addEventListener('mouseleave', autoSlider)
 
 spanDot[0].addEventListener('click',()=>{currentSlide(0)})
 spanDot[1].addEventListener('click',()=>{currentSlide(1)})
 spanDot[2].addEventListener('click',()=>{currentSlide(2)})
 spanDot[3].addEventListener('click',()=>{currentSlide(3)})
 
-function autoSlider(){
-	function autoSlide() {plusSlides(1)} 
-	scrollingTime = setInterval(autoSlide,2500)
-}
-
-function pauseSlider(){
-	clearInterval(scrollingTime)
-}
 function plusSlides(n) {
 	showSlides(indexForSlides += n);
   }
   
 function currentSlide(n) {
-	pauseSlider()
 	showSlides(indexForSlides= n);
   }
   
