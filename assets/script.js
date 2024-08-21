@@ -23,7 +23,7 @@ const bannerImage = document.querySelector('.banner-img');
 const bannerText = document.querySelector('#banner p');
 const spanDot = document.getElementsByClassName('dot');
 
-let indexForSlides = 1;
+let indexForSlides = 0;
 let slideOn
 let scrollingTime
 
