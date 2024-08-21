@@ -55,7 +55,7 @@ function showSlides(n) {
 		spanDot[i].className = spanDot[i].className.replace(" dot_selected", "");
 	}
 	spanDot[indexForSlides].className += " dot_selected";
-}
+  }
 
 
 
