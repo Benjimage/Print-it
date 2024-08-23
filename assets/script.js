@@ -25,8 +25,6 @@ const spanDot = document.getElementsByClassName('dot');
 
 let indexForSlides = 0;
 let slideOn
-let scrollingTime
-
 
 leftArrow.addEventListener('click', ()=>{plusSlides(-1)})
 
